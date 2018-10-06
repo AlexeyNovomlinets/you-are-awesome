@@ -11,7 +11,9 @@ const createNotEnumerableProperty = (propertyName) => {
     return propertyName;
 };
 const createProtoMagicObject = () => {
-    //return 0;
+    const result = () => {};
+    result.prototype = result.__proto__;
+    return result;
 };
 const incrementor = () => {   
     if(global.count === undefined) {global.count = 0;}
